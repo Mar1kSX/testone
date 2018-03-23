@@ -20,6 +20,6 @@ def fibV1(k):
 
 if isint(num):
     print('числа Фибоначчи:')
-    fibV1(int(num))
+    fibV1(num)
 
 else: print('Введеное число не является целым')
