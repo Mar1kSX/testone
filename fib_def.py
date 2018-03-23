@@ -1,6 +1,4 @@
-print('Введите количество чисел Фибоначчи:')
-num=input()
-
+#!/usr/bin/env python3
 def isint(value):
     try:
         int(value)
@@ -8,18 +6,24 @@ def isint(value):
     except ValueError:
         return False
 
-def fibV1(k):
+
+def fib_v_1(k):
     n = int(k)
-    if n == 1: fib_list = [1]
+    if n == 1:
+        fib_list = [1]
     if n >= 2:
         fib_list = [1, 1]
-        for i in range(2, n - 1):
+        for i in range(2, n):
             fib_list.append(fib_list[i - 1] + fib_list[i - 2])
+    return fib_list
 
-    print(fib_list)
 
-if isint(num):
-    print('числа Фибоначчи:')
-    fibV1(num)
+if __name__ == '__main__':
+    print('Введите количество чисел Фибоначчи:')
+    num = input()
 
-else: print('Введеное число не является целым')
+    if isint(num):
+        print('Числа Фибоначчи:')
+        print(fib_v_1(num))
+    else:
+        print('Введеное число не является целым!')
