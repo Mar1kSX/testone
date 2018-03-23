@@ -18,12 +18,24 @@ def fib_v_1(k):
     return fib_list
 
 
-if __name__ == '__main__':
-    print('Введите количество чисел Фибоначчи:')
-    num = input()
-
-    if isint(num):
-        print('Числа Фибоначчи:')
-        print(fib_v_1(num))
+def fact_v_1(k):
+    n = int(k)
+    if n == 1:
+        return 1
     else:
-        print('Введеное число не является целым!')
+        return n*fact_v_1(n-1)
+
+
+if __name__ == '__main__':
+    print("Введите число для вывода последовательности N-первых чисел Фибоначчи")
+    num_fib = input()
+    print("Введите число для расчета факториала")
+    num_fact = input()
+
+    if isint(num_fib) and isint(num_fact):
+        print("Список {}-первых чисел Фибоначчи:".format(num_fib))
+        print(fib_v_1(num_fib))
+        print("Факториал числа {}:".format(num_fact))
+        print(fact_v_1(num_fact))
+    else:
+        print("Ошибка ввода целого числа!")
