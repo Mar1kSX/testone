@@ -5,8 +5,8 @@
       "kind": "man",
       "info": [
         {
-          "surname": "Иванов",
-          "name": "Антон",
+          "surname": "РРІР°РЅРѕРІ",
+          "name": "РђРЅС‚РѕРЅ",
           "married": true,
           "children": 0
         }
@@ -17,8 +17,8 @@
       "kind": "woman",
       "info": [
         {
-          "surname": "Сидорова",
-          "name": "Анна",
+          "surname": "РЎРёРґРѕСЂРѕРІР°",
+          "name": "РђРЅРЅР°",
           "married": false,
           "children": 2
         }
@@ -29,8 +29,8 @@
       "kind": "woman",
       "info": [
         {
-          "surname": "Петрова",
-          "name": "Алена",
+          "surname": "РџРµС‚СЂРѕРІР°",
+          "name": "РђР»РµРЅР°",
           "married": false,
           "children": 1
         }
@@ -41,8 +41,8 @@
       "kind": "woman",
       "info": [
         {
-          "surname": "Петрова",
-          "name": "Алена",
+          "surname": "РџРµС‚СЂРѕРІР°",
+          "name": "РђР»РµРЅР°",
           "married": false,
           "children": 1
         }
