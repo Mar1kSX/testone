@@ -1,0 +1,40 @@
+---
+- name: "Creating multiple folders by checking folders"
+  hosts: test
+  become: yes
+  become_method: sudo
+  tasks:
+  - block:
+    - name: "Check that folder for config exists before create"
+      stat:
+       path: "{{item}}"
+      register: folder_stats
+      with_items:
+      - ["/etc/zabbix/zabbix_agentd.d/databases","/etc/zabbix/zabbix_agentd.d/hardware","/etc/zabbix/zabbix_agentd.d/logic","/etc/zabbix/zabbix_agentd.d/services","/etc/zabbix/zabbix_agentd.d/system","/opt/scripts/zabbix/databases","/opt/scripts/zabbix/hardware","/opt/scripts/zabbix/logic","/opt/scripts/zabbix/services","/opt/scripts/zabbix/system"]
+    - name: "Create folders for configs and set permissions"
+      file:
+       path: "{{item.item}}"
+       state: directory
+       mode: 0755
+       owner: root
+       group: root
+      when: item.stat.exists == false
+      with_items:
+      - "{{folder_stats.results}}"
+  - block:
+    - name: "Check that temprorary folder for script exists before create"
+      stat:
+       path: "{{item}}"
+      register: folder_stats
+      with_items:
+      - ["/opt/scripts/zabbix/databases/tmp","/opt/scripts/zabbix/hardware/tmp","/opt/scripts/zabbix/logic/tmp","/opt/scripts/zabbix/services/tmp","/opt/scripts/zabbix/system/tmp"]
+    - name: "Create temprorary folders for scripts ans set permissions"
+      file:
+       path: "{{item.item}}"
+       state: directory
+       mode: 0777
+       owner: root
+       group: root
+      when: item.stat.exists == false
+      with_items:
+      - "{{folder_stats.results}}"
