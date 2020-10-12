@@ -12,13 +12,13 @@
         owner: root
         group: root
       with_items:
-      - "/etc/zabbix/zabbix_agentd.d/databases"
-      - "/etc/zabbix/zabbix_agentd.d/hardware"
-      - "/etc/zabbix/zabbix_agentd.d/logic"
-      - "/etc/zabbix/zabbix_agentd.d/services"
-      - "/etc/zabbix/zabbix_agentd.d/system"
-      - "/opt/scripts/zabbix/databases"
-      - "/opt/scripts/zabbix/hardware"
-      - "/opt/scripts/zabbix/logic"
-      - "/opt/scripts/zabbix/services"
-      - "/opt/scripts/zabbix/system"
+        - "/etc/zabbix/zabbix_agentd.d/databases"
+        - "/etc/zabbix/zabbix_agentd.d/hardware"
+        - "/etc/zabbix/zabbix_agentd.d/logic"
+        - "/etc/zabbix/zabbix_agentd.d/services"
+        - "/etc/zabbix/zabbix_agentd.d/system"
+        - "/opt/scripts/zabbix/databases"
+        - "/opt/scripts/zabbix/hardware"
+        - "/opt/scripts/zabbix/logic"
+        - "/opt/scripts/zabbix/services"
+        - "/opt/scripts/zabbix/system"
