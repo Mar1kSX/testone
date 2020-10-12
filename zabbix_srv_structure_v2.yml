@@ -1,0 +1,53 @@
+---
+- name: "Creating structure of folders for zabbix host and configure"
+  hosts: test
+  become: yes
+  #become_method: sudo
+
+  vars:
+    zabbix_configs_dir: /etc/zabbix/zabbix_agentd.d
+    zabbix_scripts_dir: /opt/scripts/zabbix
+    zabbix_additional_dirs: [databases, hardware, logic, services, system]
+    zabbix_tmp_dir: tmp
+
+  tasks:
+    - name: "Create necessary directories"
+      file:
+        state: directory
+        path: "{{ item }}"
+        mode: 0755
+        owner: root
+        group: root
+      loop:
+        - "{{ zabbix_configs_dir }}"
+        - "{{ zabbix_scripts_dir }}"
+
+  tasks:
+    - name: "Create structure for zabbix configs and set permissions"
+      file:
+        path: "{{ zabbix_configs_dir }}/{{ item }}"
+        state: directory
+        mode: 0755
+        owner: root
+        group: root
+      loop: "{{ zabbix_additional_dirs }}"
+
+  tasks:
+    - name: "Create structure for zabbix scripts and set permissions"
+      file:
+        path: "{{ zabbix_scripts_dir }}/{{ item }}"
+        state: directory
+        mode: 0755
+        owner: root
+        group: root
+      loop: "{{ zabbix_additional_dirs }}"
+
+  tasks:
+    - name: "Create structure for zabbix temprorary directories and set permissions"
+      file:
+        path: "{{ zabbix_scripts_dir }}/{{ item }}/{{ zabbix_tmp_dir }}"
+        state: directory
+        mode: 01777
+        owner: root
+        group: root
+      loop: "{{ zabbix_additional_dirs }}"
