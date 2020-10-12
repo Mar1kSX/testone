@@ -1,0 +1,24 @@
+---
+- name: "Creating structure of folders for zabbix host and configure"
+  hosts: test
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: "Create structure for zabbix configs and scripts, set permissions"
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: 0755
+        owner: root
+        group: root
+      with_items:
+      - "/etc/zabbix/zabbix_agentd.d/databases"
+      - "/etc/zabbix/zabbix_agentd.d/hardware"
+      - "/etc/zabbix/zabbix_agentd.d/logic"
+      - "/etc/zabbix/zabbix_agentd.d/services"
+      - "/etc/zabbix/zabbix_agentd.d/system"
+      - "/opt/scripts/zabbix/databases"
+      - "/opt/scripts/zabbix/hardware"
+      - "/opt/scripts/zabbix/logic"
+      - "/opt/scripts/zabbix/services"
+      - "/opt/scripts/zabbix/system"
